@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    name: "rundeck"
+    labels:
+        app: "rundeck"
+    annotations:
+        kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+    rules:
+        - host: rundeckabfb-rundeck.98a4952c784f4a3c97d2.eastus.aksapp.io
+          http:
+            paths:
+            - path: /
+              backend:
+                serviceName: "rundeck"
+                servicePort: 80
