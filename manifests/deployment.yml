@@ -1,0 +1,16 @@
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: "rundeck"
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: "rundeck"
+    spec:
+      containers:
+        - name: "rundeck"
+          image: "rundeck.azurecr.io/rundeck"
+          ports:
+          - containerPort: 80
